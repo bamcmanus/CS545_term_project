@@ -14,8 +14,11 @@ if __name__ == "__main__":
     #replace male/female with a binary classification
     trainSet['Sex'] = trainSet['Sex'].map({'female': 1, 'male': 0}).astype(int)
     testSet['Sex'] = testSet['Sex'].map({'female': 1, 'male': 0}).astype(int)
+    trainSet['Embarked'] = trainSet['Embarked'].map({'S': 1, 'C': 2, 'Q': 3}
+        ).astype(int)
     
     #grab labels and drop from the features
     trainTarg = trainSet["Survived"]
     trainSet = trainSet.drop("Survived", axis=1)
+    print(trainSet.head())
     
